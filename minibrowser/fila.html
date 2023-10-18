@@ -1,0 +1,26 @@
+<script>
+  console.log("[Fila/Queue]");
+  //quem entra primeiro sai primeiro
+  let fila = ["script.js", "style.css", "imagem.png"];
+
+  class Queue {
+    constructor() {
+      this.data = [];
+    }
+    print() {
+      console.log(this.data);
+    }
+    enqueue(newData) {
+      this.data.push(newData);
+    }
+    dequeue() {
+      this.data.shift();
+    }
+  }
+  let requests = new Queue();
+  requests.enqueue("script.js");
+  requests.dequeue();
+  requests.enqueue("style.css");
+  requests.dequeue();
+  requests.enqueue("novo.tesxt");
+</script>

@@ -1,0 +1,37 @@
+<script>
+  console.log("Pilha/Stack");
+
+  class BrowserHistoryStack {
+    constructor() {
+      this.cursor = 0;
+      this.data = [];
+    }
+
+    push(newData) {
+      while (this.cursor < this.data.length) {
+        this.data.pop();
+      }
+      this.cursor++;
+      this.data.push(newData);
+    }
+
+    back() {
+      if (this.cursor === 0) {
+        this.cursor--;
+      } else {
+        console.log("Não tem mais para onde voltar");
+      }
+    }
+
+    print() {
+      console.log("cursor", this.cursor);
+      console.log("data", this.data);
+    }
+  }
+
+  let history = new BrowserHistoryStack();
+  history.push("google.com");
+  history.push("youtube.com");
+  history.push("facebook.com");
+  history.back();
+</script>

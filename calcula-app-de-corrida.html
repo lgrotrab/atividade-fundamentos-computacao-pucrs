@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcula corrida</title>
+  </head>
+  <body>
+    <h1>Calcula corrida</h1>
+    <input
+      type="text"
+      placeholder="Distância em km"
+      name="distancia"
+      id="distancia"
+    />
+    <input
+      type="text"
+      placeholder="Estimativa em tempo"
+      name="tempo"
+      id="tempo"
+    />
+    <button onclick="calculaValor()">Calcular</button>
+
+    <p id="result"></p>
+    <script>
+      //Organizar entradas e fazer a regra de negócio
+
+      function formataMoeda(valor) {
+        return valor.toFixed(2).replace(".", ",");
+      }
+
+      function calculaValor() {
+        if (
+          document.getElementById("distancia").value === "" ||
+          document.getElementById("tempo").value === ""
+        ) {
+          alert("Ambos os campos devem ser preenchidos");
+        } else {
+          let tarifaDinamica = 1.4;
+          let distanciaEmKm =
+            document.getElementById("distancia").value * tarifaDinamica;
+          let tempoEmMin = document.getElementById("tempo").value * 0.26;
+          let valorDaCorrida = distanciaEmKm + tempoEmMin;
+
+          if (isNaN(valorDaCorrida)) {
+            alert("Os valores precisam ser números");
+          } else {
+            document.getElementById("result").innerHTML =
+              "O valor da corrida é:" + formataMoeda(valorDaCorrida);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
